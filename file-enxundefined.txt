@@ -1,0 +1,43 @@
+# Core
+httpx[http2]>=0.25.0
+aiohttp>=3.9.0
+asyncio>=3.4.3
+aiofiles>=23.0.0
+
+# Database
+aiosqlite>=0.19.0
+sqlite3-utils>=3.34
+
+# Browser automation
+playwright>=1.40.0
+
+# SSH/Protocol
+asyncssh>=2.14.0
+aiomysql>=0.2.0
+aiopg>=1.4.0
+aioredis>=2.0.0
+
+# Proxy
+pysocks>=1.7.1
+requests[socks]>=2.31.0
+
+# Crypto
+bcrypt>=4.1.0
+passlib>=1.7.4
+cryptography>=41.0.0
+
+# Phishing
+aiohttp-jinja2>=1.5.0
+jinja2>=3.1.0
+
+# Config
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+
+# CLI/UI
+rich>=13.7.0
+typer>=0.9.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

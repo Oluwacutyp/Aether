@@ -1,0 +1,2 @@
+docker build -t aether .
+docker run aether --help

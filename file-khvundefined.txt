@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  aether:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - AETHER_STORAGE_PATH=/app/data
+      - AETHER_PROXY_ENABLED=false
+    command: ["--help"]
+    
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      
+  # Optional: Web dashboard
+  dashboard:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - AETHER_DASHBOARD_ENABLED=true
+    depends_on:
+      - redis
+
+volumes:
+  redis_data:

